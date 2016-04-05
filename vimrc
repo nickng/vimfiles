@@ -82,7 +82,6 @@
     Plugin 'chrisbra/unicode.vim'
     Plugin 'rhysd/vim-clang-format'
     Plugin 'vim-airline/vim-airline'
-    Plugin 'vim-airline/vim-airline-theme'
     Plugin 'airblade/vim-gitgutter'
     call vundle#end()
     filetype plugin indent on
