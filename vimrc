@@ -214,7 +214,7 @@
     function! s:setupWrapping()
         set wrap
         set linebreak
-        set textwidth=72
+        set textwidth=80
         set nolist
     endfunction
 " }
