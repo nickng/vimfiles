@@ -184,8 +184,8 @@
     set listchars+=extends:◄       " Line extends beyond right edge of screen
     set listchars+=precedes:►      " Line extends beyond left edge of screen
     set fillchars=""               " Reset the fillchars
-    set fillchars+=vert:\          " No vertical split chars
-    set fillchars+=fold:-          " horizontal split chars
+    set fillchars+=vert:│          " No vertical split chars
+    set fillchars+=fold:─          " horizontal split chars
 
     " Colour {
         colorscheme molokai
