@@ -95,6 +95,14 @@
         let g:airline_theme='nickng'
     " }
 
+    " LaTeX Suite configuration {
+        let Tex_FoldedSections     = ""
+        let Tex_FoldedEnvironments = ""
+        let Tex_FoldedMisc         = ""
+        autocmd Filetype tex setlocal nofoldenable
+        let g:Imap_UsePlaceHolders = 0 " Turn off <++> annoyances
+    " }
+
     " multi-cursor configuration {
         let g:multi_cursor_use_default_mapping=0
         let g:multi_cursor_next_key='<C-m>'
