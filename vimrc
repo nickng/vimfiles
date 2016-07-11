@@ -59,7 +59,6 @@
     Plugin 'mattn/gist-vim'
     Plugin 'othree/html5.vim'
     Plugin 'digitaltoad/vim-jade'
-    Plugin 'vim-scripts/LaTeX-Suite-aka-Vim-LaTeX'
     Plugin 'pangloss/vim-javascript'
     Plugin 'tpope/vim-markdown'
     Plugin 'scrooloose/nerdtree'
