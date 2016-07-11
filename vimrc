@@ -113,6 +113,7 @@
         let g:syntastic_cpp_compiler_options = '-Wall -std=c++14'
         let g:syntastic_c_compiler = 'clang'
         let g:syntastic_c_compiler_options = '-Wall -std=c14'
+        let g:syntastic_go_checkers = [ 'golint', 'govet', 'errcheck' ]
     " }
 
     "  NERDTree configuration {
@@ -136,6 +137,10 @@
      " YCM configuration {
         let g:ycm_error_symbol = '▸'
         let g:ycm_confirm_extra_conf = 0
+     " }
+
+     " go-vim configuration {
+        let g:go_list_type = "quickfix"
      " }
 " }
 
@@ -262,6 +267,7 @@
         autocmd Filetype tex setlocal nofoldenable
 
         autocmd FileType go set noexpandtab tabstop=4 shiftwidth=4
+        autocmd BufWritePost *.go GoTestCompile
 
         " Switch to working directory of the open file
         " au BufEnter * if expand('%:p') !~ '://' | cd %:p:h | endif
