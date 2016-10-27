@@ -114,6 +114,7 @@
         let g:syntastic_c_compiler = 'clang'
         let g:syntastic_c_compiler_options = '-Wall -std=c14'
         let g:syntastic_go_checkers = [ 'golint', 'govet', 'errcheck' ]
+        let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
     " }
 
     "  NERDTree configuration {
