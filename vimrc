@@ -236,6 +236,7 @@
 
         " Make sure all Markdown files have the correct filetype set and setup wrapping
         autocmd BufNewFile,BufRead *.{md,markdown,mdown,mkd,mkdn,txt} setf markdown | call s:setupWrapping()
+        autocmd BufNewFile,BufRead *.{html,html} set tabstop=2 shiftwidth=2
 
         " Treat JSON files like JavaScript
         autocmd BufNewFile,BufRead *.json set filetype=javascript
