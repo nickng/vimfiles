@@ -76,6 +76,7 @@
     Plugin 'rhysd/vim-clang-format'
     Plugin 'vim-airline/vim-airline'
     Plugin 'airblade/vim-gitgutter'
+    Plugin 'rust-lang/rust.vim'
     call vundle#end()
     filetype plugin indent on
 
