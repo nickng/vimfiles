@@ -42,43 +42,54 @@
     au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 " }
 
-" Vundle packages {
-    filetype off
-    set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#begin()
-    Plugin 'bartlomiejdanek/vim-dart'
-    Plugin 'ap/vim-css-color'
-    Plugin 'kchmck/vim-coffee-script'
-    Plugin 'tpope/vim-fugitive'
-    Plugin 'mattn/gist-vim'
-    Plugin 'othree/html5.vim'
-    Plugin 'digitaltoad/vim-jade'
-    Plugin 'pangloss/vim-javascript'
-    Plugin 'tpope/vim-markdown'
-    Plugin 'scrooloose/nerdtree'
-    Plugin 'mmalecki/vim-node.js'
-    Plugin 'kana/vim-smartinput'
-    Plugin 'ervandew/supertab'
-    Plugin 'majutsushi/tagbar'
-    Plugin 'vim-scripts/taglist.vim'
-    Plugin 'scrooloose/syntastic'
-    Plugin 'nickng/vim-scribble'
-    Plugin 'basepi/vim-conque'
-    Plugin 'tomasr/molokai'
-    Plugin 'marijnh/tern_for_vim'
-    Plugin 'godlygeek/tabular'
-    Plugin 'terryma/vim-multiple-cursors'
-    Plugin 'rdnetto/YCM-Generator'
-    Plugin 'Valloric/YouCompleteMe'
-    Plugin 'fatih/vim-go'
-    Plugin 'Blackrush/vim-gocode'
-    Plugin 'chrisbra/unicode.vim'
-    Plugin 'rhysd/vim-clang-format'
-    Plugin 'vim-airline/vim-airline'
-    Plugin 'airblade/vim-gitgutter'
-    Plugin 'rust-lang/rust.vim'
-    call vundle#end()
-    filetype plugin indent on
+" Package manager {
+    if has('nvim')
+        if empty(glob("~/.local/share/nvim/site/autoload/plug.vim"))
+            execute '!curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+            autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+        endif
+    else
+        if empty(glob("~/.vim/autoload/plug.vim"))
+            execute '!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+            autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+        endif
+    endif
+" }
+
+" Packages {
+    call plug#begin('~/.vim/bundle')
+    Plug 'bartlomiejdanek/vim-dart'
+    Plug 'ap/vim-css-color'
+    Plug 'kchmck/vim-coffee-script'
+    Plug 'tpope/vim-fugitive'
+    Plug 'mattn/gist-vim'
+    Plug 'othree/html5.vim'
+    Plug 'digitaltoad/vim-jade'
+    Plug 'pangloss/vim-javascript'
+    Plug 'tpope/vim-markdown'
+    Plug 'scrooloose/nerdtree'
+    Plug 'mmalecki/vim-node.js'
+    Plug 'kana/vim-smartinput'
+    Plug 'ervandew/supertab'
+    Plug 'majutsushi/tagbar'
+    Plug 'vim-scripts/taglist.vim'
+    Plug 'scrooloose/syntastic'
+    Plug 'nickng/vim-scribble'
+    Plug 'basepi/vim-conque'
+    Plug 'tomasr/molokai'
+    Plug 'marijnh/tern_for_vim'
+    Plug 'godlygeek/tabular'
+    Plug 'terryma/vim-multiple-cursors'
+    Plug 'rdnetto/YCM-Generator'
+    Plug 'Valloric/YouCompleteMe'
+    Plug 'fatih/vim-go'
+    Plug 'Blackrush/vim-gocode'
+    Plug 'chrisbra/unicode.vim'
+    Plug 'rhysd/vim-clang-format'
+    Plug 'vim-airline/vim-airline'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'rust-lang/rust.vim'
+    call plug#end()
 
     " airline configuration {
         source  ~/.vim/airline-nickng.vim
