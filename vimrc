@@ -89,6 +89,8 @@
     Plug 'vim-airline/vim-airline'
     Plug 'airblade/vim-gitgutter'
     Plug 'rust-lang/rust.vim'
+    Plug 'jceb/vim-orgmode'
+    Plug 'tpope/vim-speeddating'
     call plug#end()
 
     " airline configuration {
