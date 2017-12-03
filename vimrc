@@ -128,6 +128,7 @@
         let g:syntastic_c_compiler = 'clang'
         let g:syntastic_c_compiler_options = '-Wall -std=c14'
         let g:syntastic_go_checkers = [ 'golint', 'govet', 'errcheck' ]
+        let g:syntastic_rust_checkers = [ 'cargo', 'rustc' ]
         let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
     " }
 
@@ -157,6 +158,10 @@
      " go-vim configuration {
         let g:go_list_type = "quickfix"
      " }
+
+     " rust.vim configuration {
+        let g:rustfmt_autosave = 1
+     " }
 " }
 
 " UI {
@@ -168,11 +173,11 @@
         set laststatus=2
         set statusline=%<%f\                         " Filename
         set statusline+=%w%h%m%r                     " Options
-        "set statusline+=%{fugitive#statusline()}     " Git Hotness
+        set statusline+=%{fugitive#statusline()}     " Git Hotness
         set statusline+=\ [%{&ff}/%Y]                " Filetype
         set statusline+=\ [%{getcwd()}]              " Current dir
         set statusline+=%#warningmsg#                " Warning message colour
-        "set statusline+=%{SyntasticStatuslineFlag()} " Syntastic flag
+        set statusline+=%{SyntasticStatuslineFlag()} " Syntastic flag
         set statusline+=%*                           " Normal colour
         set statusline+=%=%-14.(%l,%c%V%)\ %p%%      " Right aligned file nav info
     endif
@@ -282,11 +287,15 @@
         autocmd FileType tex set tabstop=2 shiftwidth=2 spell
         autocmd Filetype tex setlocal nofoldenable
 
+        " Go
         autocmd FileType go set noexpandtab tabstop=4 shiftwidth=4
         autocmd BufWritePost *.go GoTestCompile
 
+        " Rust
+        autocmd FileType rust set expandtab tabstop=4 shiftwidth=4
+
         " Switch to working directory of the open file
-        " au BufEnter * if expand('%:p') !~ '://' | cd %:p:h | endif
+        au BufEnter * if expand('%:p') !~ '://' | cd %:p:h | endif
     endif
 " }
 
