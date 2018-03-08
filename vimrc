@@ -75,7 +75,6 @@
     Plug 'vim-scripts/taglist.vim'
     Plug 'w0rp/ale'
     Plug 'nickng/vim-scribble'
-    Plug 'basepi/vim-conque'
     Plug 'tomasr/molokai'
     Plug 'marijnh/tern_for_vim'
     Plug 'godlygeek/tabular'
