@@ -73,7 +73,7 @@
     Plug 'ervandew/supertab'
     Plug 'majutsushi/tagbar'
     Plug 'vim-scripts/taglist.vim'
-    Plug 'scrooloose/syntastic'
+    Plug 'w0rp/ale'
     Plug 'nickng/vim-scribble'
     Plug 'basepi/vim-conque'
     Plug 'tomasr/molokai'
@@ -118,18 +118,14 @@
         let g:multi_cursor_quit_key='<Esc>'
     " }
 
-    " syntastic configuration {
-        let g:syntastic_enable_signs=1  " Mark syntax errors with :signs
-        let g:syntastic_auto_jump=0     " Automatically jump to the error when saving the file
-        let g:syntastic_auto_loc_list=1 " Show the error list automatically
-        let g:syntastic_cpp_checkers = [ 'clang_tidy' , 'clang_check' ]
-        let g:syntastic_cpp_compiler = 'clang++'
-        let g:syntastic_cpp_compiler_options = '-Wall -std=c++14'
-        let g:syntastic_c_compiler = 'clang'
-        let g:syntastic_c_compiler_options = '-Wall -std=c14'
-        let g:syntastic_go_checkers = [ 'golint', 'govet', 'errcheck' ]
-        let g:syntastic_rust_checkers = [ 'cargo' ]
-        let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+    " ale configuration {
+        " Error and warning signs.
+        let g:ale_sign_error = '⨯'
+        let g:ale_sign_warning = '⚠'
+        let g:ale_echo_msg_format = '[%linter%] %code: %%s'
+
+        " Enable integration with airline.
+        let g:airline#extensions#ale#enabled = 1
     " }
 
     "  NERDTree configuration {
@@ -157,8 +153,8 @@
 
      " go-vim configuration {
         let g:go_list_type = "quickfix"
+        let g:go_auto_type_info = 1
      " }
-
      " rust.vim configuration {
         let g:rustfmt_autosave = 1
      " }
@@ -176,8 +172,6 @@
         set statusline+=%{fugitive#statusline()}     " Git Hotness
         set statusline+=\ [%{&ff}/%Y]                " Filetype
         set statusline+=\ [%{getcwd()}]              " Current dir
-        set statusline+=%#warningmsg#                " Warning message colour
-        set statusline+=%{SyntasticStatuslineFlag()} " Syntastic flag
         set statusline+=%*                           " Normal colour
         set statusline+=%=%-14.(%l,%c%V%)\ %p%%      " Right aligned file nav info
     endif
