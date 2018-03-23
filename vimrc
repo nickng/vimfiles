@@ -81,7 +81,7 @@
     Plug 'terryma/vim-multiple-cursors'
     Plug 'rdnetto/YCM-Generator'
     Plug 'Valloric/YouCompleteMe'
-    Plug 'fatih/vim-go'
+    Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
     Plug 'Blackrush/vim-gocode'
     Plug 'chrisbra/unicode.vim'
     Plug 'rhysd/vim-clang-format'
@@ -133,7 +133,6 @@
             NERDTree
         end
         endfunction
-
         let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
         let NERDTreeHijackNetrw = 1
         autocmd VimEnter * call StartNerdTree()
@@ -150,10 +149,24 @@
         let g:ycm_confirm_extra_conf = 0
      " }
 
-     " go-vim configuration {
-        let g:go_list_type = "quickfix"
+     " vim-go configuration {
         let g:go_auto_type_info = 1
+        let g:go_fmt_command = "goimports"
+        let g:go_metalinter_autosave = 1
+        " run :GoBuild or :GoTestCompile based on the go file
+        function! s:build_go_files()
+        let l:file = expand('%')
+        if l:file =~# '^\f\+_test\.go$'
+            call go#test#Test(0, 1)
+        elseif l:file =~# '^\f\+\.go$'
+            call go#cmd#Build(0)
+        endif
+        endfunction
+
+        autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+        autocmd FileType go nmap <leader>r  <Plug>(go-run)
      " }
+
      " rust.vim configuration {
         let g:rustfmt_autosave = 1
      " }
@@ -282,7 +295,6 @@
 
         " Go
         autocmd FileType go set noexpandtab tabstop=4 shiftwidth=4
-        autocmd BufWritePost *.go GoTestCompile
 
         " Rust
         autocmd FileType rust set expandtab tabstop=4 shiftwidth=4
