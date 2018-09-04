@@ -79,8 +79,6 @@
     Plug 'marijnh/tern_for_vim'
     Plug 'godlygeek/tabular'
     Plug 'terryma/vim-multiple-cursors'
-    Plug 'rdnetto/YCM-Generator'
-    Plug 'Valloric/YouCompleteMe'
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
     Plug 'Blackrush/vim-gocode'
     Plug 'chrisbra/unicode.vim'
@@ -90,6 +88,14 @@
     Plug 'rust-lang/rust.vim'
     Plug 'jceb/vim-orgmode'
     Plug 'tpope/vim-speeddating'
+    if has('nvim')
+        Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    else
+        Plug 'Shougo/deoplete.nvim'
+        Plug 'roxma/nvim-yarp'
+        Plug 'roxma/vim-hug-neovim-rpc'
+    endif
+    Plug 'zchee/deoplete-go', { 'do': 'make'}
     call plug#end()
 
     " airline configuration {
@@ -144,11 +150,6 @@
         imap <F7> <ESC>:TagbarToggle<CR>
      " }
 
-     " YCM configuration {
-        let g:ycm_error_symbol = '▸'
-        let g:ycm_confirm_extra_conf = 0
-     " }
-
      " vim-go configuration {
         let g:go_auto_type_info = 1
         let g:go_fmt_command = "goimports"
@@ -169,6 +170,15 @@
 
      " rust.vim configuration {
         let g:rustfmt_autosave = 1
+     " }
+
+     " deoplete configuration {
+        let g:deoplete#enable_at_startup = 1
+     " }
+
+     " deoplete-go configuration {
+        let g:deoplete#sources#go#gocode_binary = '/home/nickng/go/bin/gocode'
+        let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
      " }
 " }
 
