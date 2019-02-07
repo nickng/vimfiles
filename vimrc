@@ -84,6 +84,7 @@
     Plug 'chrisbra/unicode.vim'
     Plug 'rhysd/vim-clang-format'
     Plug 'vim-airline/vim-airline'
+    Plug 'nickng/vim-airline-themes'
     Plug 'airblade/vim-gitgutter'
     Plug 'rust-lang/rust.vim'
     Plug 'elubow/cql-vim'
@@ -99,7 +100,6 @@
     call plug#end()
 
     " airline configuration {
-        source  ~/.vim/airline-nickng.vim
         let g:airline_left_sep=''
         let g:airline_right_sep=''
         let g:airline_detect_spell=0
