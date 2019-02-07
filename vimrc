@@ -86,8 +86,8 @@
     Plug 'vim-airline/vim-airline'
     Plug 'airblade/vim-gitgutter'
     Plug 'rust-lang/rust.vim'
-    Plug 'jceb/vim-orgmode'
-    Plug 'tpope/vim-speeddating'
+    Plug 'elubow/cql-vim'
+    Plug 'ctrlpvim/ctrlp.vim'
     if has('nvim')
         Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     else
