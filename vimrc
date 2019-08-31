@@ -80,7 +80,6 @@
     Plug 'godlygeek/tabular'
     Plug 'terryma/vim-multiple-cursors'
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-    Plug 'Blackrush/vim-gocode'
     Plug 'chrisbra/unicode.vim'
     Plug 'rhysd/vim-clang-format'
     Plug 'vim-airline/vim-airline'
@@ -89,14 +88,6 @@
     Plug 'rust-lang/rust.vim'
     Plug 'elubow/cql-vim'
     Plug 'ctrlpvim/ctrlp.vim'
-    if has('nvim')
-        Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    else
-        Plug 'Shougo/deoplete.nvim'
-        Plug 'roxma/nvim-yarp'
-        Plug 'roxma/vim-hug-neovim-rpc'
-    endif
-    Plug 'zchee/deoplete-go', { 'do': 'make'}
     call plug#end()
 
     " airline configuration {
@@ -166,19 +157,17 @@
 
         autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
         autocmd FileType go nmap <leader>r  <Plug>(go-run)
+        autocmd FileType go nmap <leader>t  <Plug>(go-test)
+        autocmd FileType go nmap <leader>d  <Plug>(go-def)
+        autocmd FileType go nmap <leader>p  <Plug>(go-def-pop)
      " }
 
      " rust.vim configuration {
         let g:rustfmt_autosave = 1
      " }
 
-     " deoplete configuration {
-        let g:deoplete#enable_at_startup = 1
-     " }
-
-     " deoplete-go configuration {
-        let g:deoplete#sources#go#gocode_binary = '/home/nickng/go/bin/gocode'
-        let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+     " ctrlp configuration {
+        let g:ctrlp_working_path_mode = 'ra'
      " }
 " }
 
