@@ -114,6 +114,11 @@
         let g:multi_cursor_quit_key='<Esc>'
     " }
 
+    " unicode.vim configuration {
+        nmap <Leader>u <Plug>(MakeDigraph)
+        vmap <Leader>u <Plug>(MakeDigraph)
+    " }
+
     " ale configuration {
         " Error and warning signs.
         let g:ale_sign_error = '⨯'
@@ -133,12 +138,12 @@
         let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
         let NERDTreeHijackNetrw = 1
         autocmd VimEnter * call StartNerdTree()
-        map <F9> :NERDTreeToggle<CR>
+        map <Leader>n :NERDTreeToggle<CR>
     "  }
 
      " Tagbar configuration {
-        nmap <F7> :TagbarToggle<CR>
-        imap <F7> <ESC>:TagbarToggle<CR>
+        nmap <Leader>t :TagbarToggle<CR>
+        imap <Leader>t <ESC>:TagbarToggle<CR>
      " }
 
      " vim-go configuration {
