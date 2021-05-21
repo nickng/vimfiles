@@ -150,6 +150,8 @@
         let g:go_auto_type_info = 1
         let g:go_fmt_command = "goimports"
         let g:go_metalinter_autosave = 1
+        let g:go_metalinter_autosave_enabled = []
+        let g:go_metalinter_enabled = []
         " run :GoBuild or :GoTestCompile based on the go file
         function! s:build_go_files()
         let l:file = expand('%')
